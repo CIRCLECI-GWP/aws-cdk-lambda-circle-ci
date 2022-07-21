@@ -7,7 +7,7 @@ executors:
     docker:
       - image: 'cimg/node:14.18.2'
     environment:
-      AWS_REGION: AWS_REGION_NAME
+      AWS_REGION: 'us-east-1'
 jobs:
   build:
     executor: 'default'
