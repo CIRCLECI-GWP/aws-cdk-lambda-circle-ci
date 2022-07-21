@@ -3,6 +3,8 @@
 
 [![CircleCI](https://circleci.com/gh/CIRCLECI-GWP/aws-cdk-lambda-circle-ci.svg?style=svg)](https://circleci.com/gh/CIRCLECI-GWP/aws-cdk-lambda-circle-ci)
 
+[![CircleCI](https://circleci.com/gh/CIRCLECI-GWP/aws-cdk-lambda-circle-ci/tree/aws-cdk-lambda-circle-ci.svg?style=svg)](https://circleci.com/gh/CIRCLECI-GWP/aws-cdk-lambda-circle-ci)
+
 <p align="center"><img src="https://avatars3.githubusercontent.com/u/59034516"></p>
 
 An Application for showing how to set Continuous integration for progressive web apps on CI
