@@ -6,7 +6,7 @@
 
 <p align="center"><img src="https://avatars3.githubusercontent.com/u/59034516"></p>
 
-An Application for showing how to set Continuous integration for progressive web apps on CI
+An Application for showing how to automate AWS Lambda Function Deployments Using CircleCI and AWS CDK
 
 
 ## Clone the repository:
