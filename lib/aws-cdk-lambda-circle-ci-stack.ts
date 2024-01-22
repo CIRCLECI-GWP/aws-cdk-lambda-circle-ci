@@ -1,10 +1,12 @@
-import { Stack, StackProps, aws_s3 as s3, aws_dynamodb as dynamodb, aws_lambda as lambda,
-  Duration } from 'aws-cdk-lib';
+import * as cdk from 'aws-cdk-lib';
+import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
-export class AwsCdkLambdaCircleCiStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
+export class AwsCdkLambdaCircleCiStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     const circleCiGwpBucket = new s3.Bucket(this, "circle-ci-gwp-bucket", {
@@ -20,9 +22,9 @@ export class AwsCdkLambdaCircleCiStack extends Stack {
       this,
       "CircleCiGwpLambda",
       {
-        runtime: lambda.Runtime.NODEJS_14_X,
+        runtime: lambda.Runtime.NODEJS_20_X,
         handler: "index.handler",
-        timeout: Duration.seconds(30),
+        timeout: cdk.Duration.seconds(30),
         code: lambda.Code.fromAsset("lambda/"),
         environment: {
           TABLE_NAME: circleCiGwpTable.tableName,
@@ -33,7 +35,6 @@ export class AwsCdkLambdaCircleCiStack extends Stack {
 
     circleCiGwpBucket.grantPut(circleCiGwpLambda);
     circleCiGwpTable.grantReadWriteData(circleCiGwpLambda);
-
     // The code that defines your stack goes here
 
     // example resource
@@ -41,4 +42,5 @@ export class AwsCdkLambdaCircleCiStack extends Stack {
     //   visibilityTimeout: cdk.Duration.seconds(300)
     // });
   }
+  
 }
